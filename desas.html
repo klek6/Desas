@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en, lv">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Desas</title>
+	<script>
+
+		var kliki = 0, scorex = 0, scoreo = 0;
+		const x = "&#10060;", o = "&#128309;", klass = document.getElementsByClassName("klase");
+
+		function xando(a) {
+			let atlikums, xo = o;
+			kliki += 1;
+			atlikums = kliki % 2;
+			if (atlikums == 1) {
+				xo = x;
+			} else {
+				xo = o;
+			}
+
+			a.innerHTML = xo;
+			a.disabled = true;
+		}
+		function notirit() {
+			// klass.innerHTML = ""; doesn't work
+			// klass.disabled = false; doesn't work
+			klass[0].innerHTML = ""; 
+			klass[0].disabled = false;
+			klass[1].innerHTML = ""; 
+			klass[1].disabled = false;
+			klass[2].innerHTML = ""; 
+			klass[2].disabled = false;
+			klass[3].innerHTML = ""; 
+			klass[3].disabled = false;
+			klass[4].innerHTML = ""; 
+			klass[4].disabled = false;
+			klass[5].innerHTML = ""; 
+			klass[5].disabled = false;
+			klass[6].innerHTML = ""; 
+			klass[6].disabled = false;
+			klass[7].innerHTML = ""; 
+			klass[7].disabled = false;
+			klass[8].innerHTML = ""; 
+			klass[8].disabled = false;
+			kliki = 0;
+		}
+		
+		var xscore = 0, oscore = 0;
+
+		if (kliki == 9) { 
+			if (klass.innerHTML[0,3,6] == x) {
+				xscore += 1;
+			}
+		}
+		
+		document.getElementById("xscored").innerHTML = xscore;
+		document.getElementById("oscored").innerHTML = oscore;
+	</script>
+	<style>	
+	table{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	table, td {
+		border: 2px solid black;
+		border-collapse: collapse;
+	}
+	td {
+		color:black;
+		text-align: center;
+		width: 10vw;
+		height: 10vw;
+	}
+	button {
+		background-color: rgba(0,0,0,0);
+		border: none;
+		align-items: center;
+		font-size: 7vw;
+		width: 10vw;
+		height: 10vw;
+	}
+	input {
+		width: 10vw;
+		height: 10vw;
+	}
+	#resetpoga {
+		border: 2px solid black;
+		width: 30vw;
+		height: 5vw;
+		font-size: 2vw;
+	}
+	#resetdiv {
+		display: flex;
+  		justify-content: center;
+		align-items: center;
+	}
+	#score {
+		text-align: center;
+		font-size: 3vw;
+		margin: -2vw;
+	}
+	</style>
+</head>
+<body>
+
+	<form>
+		<table>
+			<tr>
+				<td>
+					<button type="button" id="lauk1" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="lauk2" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="lauk3" class="klase" onclick="xando(this)"></button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" id="lauk4" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="lauk5" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="lauk6" class="klase" onclick="xando(this)"></button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" id="lauk7" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="lauk8" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="lauk9" class="klase" onclick="xando(this)"></button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<div id="score">
+		<p>x : o</p>
+		<span><p id="xscored"></p></span> : <span id="oscored"></span></p>
+	</div>
+	<div id="resetdiv">
+		<button type="reset" id="resetpoga" onclick="notirit()">reset</button>
+	</div>
+</body>	
+</html>
