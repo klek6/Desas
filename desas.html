@@ -23,26 +23,11 @@
 			a.disabled = true;
 		}
 		function notirit() {
-			// klass.innerHTML = ""; doesn't work
-			// klass.disabled = false; doesn't work
-			klass[0].innerHTML = ""; 
-			klass[0].disabled = false;
-			klass[1].innerHTML = ""; 
-			klass[1].disabled = false;
-			klass[2].innerHTML = ""; 
-			klass[2].disabled = false;
-			klass[3].innerHTML = ""; 
-			klass[3].disabled = false;
-			klass[4].innerHTML = ""; 
-			klass[4].disabled = false;
-			klass[5].innerHTML = ""; 
-			klass[5].disabled = false;
-			klass[6].innerHTML = ""; 
-			klass[6].disabled = false;
-			klass[7].innerHTML = ""; 
-			klass[7].disabled = false;
-			klass[8].innerHTML = ""; 
-			klass[8].disabled = false;
+			var i;
+			for (i = 0; i < klass.length; i++) {
+			klass[i].innerHTML = "";
+			klass[i].disabled = false;
+			}
 			kliki = 0;
 		}
 		
