@@ -7,7 +7,7 @@
 	<script>
 		var xclicks = 0;
 		const x = "&#10060;", o = "&#128309;";
-		const klass = document.getElementsByClassName("klase");
+		var klass = document.getElementsByClassName("klase");
 
 		function xando(a) {
 			let cremainder, xo = o;
@@ -23,8 +23,11 @@
 			if (xclicks >= 5) {
 				var xid = document.getElementById("xwins");
 				var oid = document.getElementById("owins");
+
+				//cars[0], cars[1], cars[2] == 1 (true)
+
 				var xscore = 0, oscore = 0;
-				if ((klass[0, 1, 2].innerHTML === x || 
+				if ((klass[0].innerHTML, klass[1].innerHTML, klass[2].innerHTML == x || 
 				klass[3, 4, 5].innerHTML === x ||
 				klass[6, 7, 8].innerHTML === x ||
 				klass[0, 3, 6].innerHTML === x ||
@@ -46,19 +49,23 @@
 				klass[6, 4, 2].innerHTML === o ) == true) {
 					oscore += 1;
 					oid = oscore;
-					}
-					}
 				}
+			}
+		}
 		function cleanfields() {
 			var i;
 			for (i = 0; i < klass.length; i++) {
-			klass[i].innerHTML = "";
-			klass[i].disabled = false;
+				klass[i].innerHTML = "";
+				klass[i].disabled = false;
 			}
 			xclicks = 0;
 		}
 
-			
+		function test() {
+			document.getElementById("demo").innerHTML = klass[0].innerHTML == klass[1].innerHTML ;
+			// var xyz = document.getElementById("demo").innerHTML;
+			// document.getElementById("demo2").innerHTML = xyz == x ;
+		}
 	</script>
 	<style>	
 	table{
@@ -106,6 +113,9 @@
 	</style>
 </head>
 <body>
+	<button type="button" onclick="test()">test</button>
+	<p id="demo"></p>
+	<p id="demo2"></p>
 	<form>
 		<table>
 			<tr>
