@@ -30,14 +30,14 @@
 					xid.innerHTML = xscore;
 				} 
 
-				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML == x) ||
-				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML == x) ||
-				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML == x) ||
-				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML == x) ||
-				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML == x) ||
-				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML == x) ||
-				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML == x) ||
-				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML == x)){
+				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML === x) ||
+				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML === x) ||
+				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML === x) ||
+				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML === x) ||
+				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML === x) ||
+				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML === x) ||
+				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML === x) ||
+				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML === x)){
 					xscore += 1;
 					xid.innerHTML = xscore;
 					var i;
@@ -45,14 +45,14 @@
 						klass[i].disabled = true;
 					}
 				}
-				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML == o) ||
-				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML == o) ||
-				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML == o) ||
-				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML == o) ||
-				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML == o) ||
-				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML == o) ||
-				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML == o) ||
-				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML == o)){
+				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML === o) ||
+				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML === o) ||
+				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML === o) ||
+				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML === o) ||
+				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML === o) ||
+				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML === o) ||
+				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML === o) ||
+				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML === o)){
 					oscore += 1;
 					oid.innerHTML = oscore;
 					var i;
