@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en, lv">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Desas</title>
 	<script>
 		var xclicks = 0;
-		const x = "&#10060;", o = "&#128309;";
+		const x = "X", o = "O"; // X = "&#10060;" 		O = "&#128309;"
 		var klass = document.getElementsByClassName("klase");
+		var xscore = 0, oscore = 0;
 
 		function xando(a) {
 			let cremainder, xo = o;
@@ -24,31 +25,40 @@
 				var xid = document.getElementById("xwins");
 				var oid = document.getElementById("owins");
 
-				//cars[0], cars[1], cars[2] == 1 (true)
-
-				var xscore = 0, oscore = 0;
-				if ((klass[0].innerHTML, klass[1].innerHTML, klass[2].innerHTML == x || 
-				klass[3, 4, 5].innerHTML === x ||
-				klass[6, 7, 8].innerHTML === x ||
-				klass[0, 3, 6].innerHTML === x ||
-				klass[1, 4, 7].innerHTML === x ||
-				klass[2, 5, 8].innerHTML === x ||
-				klass[0, 4, 8].innerHTML === x ||
-				klass[6, 4, 2].innerHTML === x ) == true) {
+				if (klass[0] == klass[1]) {
 					xscore += 1;
 					xid.innerHTML = xscore;
 				} 
-				
-				if ((klass[0, 1, 2].innerHTML === o ||
-				klass[3, 4, 5].innerHTML === o ||
-				klass[6, 7, 8].innerHTML === o ||
-				klass[0, 3, 6].innerHTML === o ||
-				klass[1, 4, 7].innerHTML === o ||
-				klass[2, 5, 8].innerHTML === o ||
-				klass[0, 4, 8].innerHTML === o ||
-				klass[6, 4, 2].innerHTML === o ) == true) {
+
+				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML == x) ||
+				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML == x) ||
+				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML == x) ||
+				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML == x) ||
+				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML == x) ||
+				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML == x) ||
+				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML == x) ||
+				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML == x)){
+					xscore += 1;
+					xid.innerHTML = xscore;
+					var i;
+					for (i = 0; i < klass.length; i++) {
+						klass[i].disabled = true;
+					}
+				}
+				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML == o) ||
+				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML == o) ||
+				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML == o) ||
+				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML == o) ||
+				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML == o) ||
+				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML == o) ||
+				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML == o) ||
+				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML == o)){
 					oscore += 1;
-					oid = oscore;
+					oid.innerHTML = oscore;
+					var i;
+					for (i = 0; i < klass.length; i++) {
+						klass[i].disabled = true;
+					}
 				}
 			}
 		}
@@ -59,12 +69,6 @@
 				klass[i].disabled = false;
 			}
 			xclicks = 0;
-		}
-
-		function test() {
-			document.getElementById("demo").innerHTML = klass[0].innerHTML == klass[1].innerHTML ;
-			// var xyz = document.getElementById("demo").innerHTML;
-			// document.getElementById("demo2").innerHTML = xyz == x ;
 		}
 	</script>
 	<style>	
@@ -113,9 +117,6 @@
 	</style>
 </head>
 <body>
-	<button type="button" onclick="test()">test</button>
-	<p id="demo"></p>
-	<p id="demo2"></p>
 	<form>
 		<table>
 			<tr>
@@ -160,5 +161,5 @@
 	<div id="resetdiv">
 		<button type="reset" id="resetbutton" onclick="cleanfields()">reset</button>
 	</div>
-</body>	
-</html>
+</body>
+</html> 
