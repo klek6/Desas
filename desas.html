@@ -4,45 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Desas</title>
-	<script>
-
-		var kliki = 0, scorex = 0, scoreo = 0;
-		const x = "&#10060;", o = "&#128309;", klass = document.getElementsByClassName("klase");
-
-		function xando(a) {
-			let atlikums, xo = o;
-			kliki += 1;
-			atlikums = kliki % 2;
-			if (atlikums == 1) {
-				xo = x;
-			} else {
-				xo = o;
-			}
-
-			a.innerHTML = xo;
-			a.disabled = true;
-		}
-		function notirit() {
-			var i;
-			for (i = 0; i < klass.length; i++) {
-			klass[i].innerHTML = "";
-			klass[i].disabled = false;
-			}
-			kliki = 0;
-		}
-		
-		var xscore = 0, oscore = 0;
-
-		if (kliki == 9) { 
-			if (klass.innerHTML[0,3,6] == x) {
-				xscore += 1;
-			}
-		}
-		
-		document.getElementById("xscored").innerHTML = xscore;
-		document.getElementById("oscored").innerHTML = oscore;
-	</script>
-	<style>	
+	<style>
 	table{
 		margin-left: auto;
 		margin-right: auto;
@@ -128,10 +90,58 @@
 	</form>
 	<div id="score">
 		<p>x : o</p>
-		<span><p id="xscored"></p></span> : <span id="oscored"></span></p>
+		<p>
+			<span id="xscored"></span> : <span id="oscored"></span>
+		</p>
 	</div>
 	<div id="resetdiv">
 		<button type="reset" id="resetpoga" onclick="notirit()">reset</button>
 	</div>
-</body>	
+
+	<script>
+
+	var kliki = 0, scorex = 0, scoreo = 0;
+	const x = "x"
+	const o = "o"
+	const klass = document.getElementsByClassName("klase");
+	const xscored = document.getElementById("xscored");
+	const oscored = document.getElementById("oscored");
+
+	function xando(a) {
+		kliki += 1;
+		let atlikums = kliki % 2;
+		let mark;
+		if (atlikums === 1) {
+			mark = x;
+		} else {
+			mark = o;
+		}
+
+		a.innerHTML = mark;
+		a.disabled = true;
+
+		checkScore();
+	}
+	function notirit() {
+		for (let i = 0; i < klass.length; i++) {
+			klass[i].innerHTML = "";
+			klass[i].disabled = false;
+		}
+		kliki = 0;
+	}
+
+	var xscore = 0, oscore = 0;
+
+	function checkScore() {
+		if (kliki === 9) {
+			if (klass[0].innerHTML === x || klass[4].innerHTML === x || klass[8].innerHTML === x) {
+				xscore += 1;
+				xscored.innerText = xscore.toString();
+				oscored.innerText = oscore.toString();
+			}
+		}
+	}
+
+	</script>
+</body>
 </html>
