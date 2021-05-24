@@ -1,46 +1,75 @@
 <!DOCTYPE html>
-<html lang="en, lv">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Desas</title>
 	<script>
-
-		var kliki = 0, scorex = 0, scoreo = 0;
-		const x = "&#10060;", o = "&#128309;", klass = document.getElementsByClassName("klase");
+		var xclicks = 0;
+		const x = "X", o = "O"; // X = "&#10060;" 		O = "&#128309;"
+		var klass = document.getElementsByClassName("klase");
+		var xscore = 0, oscore = 0;
 
 		function xando(a) {
-			let atlikums, xo = o;
-			kliki += 1;
-			atlikums = kliki % 2;
-			if (atlikums == 1) {
+			let cremainder, xo = o;
+			xclicks += 1;
+			cremainder = xclicks % 2;
+			if (cremainder == 1) {
 				xo = x;
 			} else {
 				xo = o;
 			}
-
 			a.innerHTML = xo;
 			a.disabled = true;
+			if (xclicks >= 5) {
+				var xid = document.getElementById("xwins");
+				var oid = document.getElementById("owins");
+
+				if (klass[0] == klass[1]) {
+					xscore += 1;
+					xid.innerHTML = xscore;
+				} 
+
+				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML === x) ||
+				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML === x) ||
+				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML === x) ||
+				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML === x) ||
+				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML === x) ||
+				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML === x) ||
+				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML === x) ||
+				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML === x)){
+					xscore += 1;
+					xid.innerHTML = xscore;
+					var i;
+					for (i = 0; i < klass.length; i++) {
+						klass[i].disabled = true;
+					}
+				}
+				if ((klass[0].innerHTML == klass[1].innerHTML && klass[1].innerHTML == klass[2].innerHTML && klass[0].innerHTML === o) ||
+				(klass[3].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[5].innerHTML && klass[3].innerHTML === o) ||
+				(klass[6].innerHTML == klass[7].innerHTML && klass[7].innerHTML == klass[8].innerHTML && klass[6].innerHTML === o) ||
+				(klass[0].innerHTML == klass[3].innerHTML && klass[3].innerHTML == klass[6].innerHTML && klass[0].innerHTML === o) ||
+				(klass[1].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[7].innerHTML && klass[1].innerHTML === o) ||
+				(klass[2].innerHTML == klass[5].innerHTML && klass[5].innerHTML == klass[8].innerHTML && klass[2].innerHTML === o) ||
+				(klass[0].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[8].innerHTML && klass[0].innerHTML === o) ||
+				(klass[6].innerHTML == klass[4].innerHTML && klass[4].innerHTML == klass[2].innerHTML && klass[6].innerHTML === o)){
+					oscore += 1;
+					oid.innerHTML = oscore;
+					var i;
+					for (i = 0; i < klass.length; i++) {
+						klass[i].disabled = true;
+					}
+				}
+			}
 		}
-		function notirit() {
+		function cleanfields() {
 			var i;
 			for (i = 0; i < klass.length; i++) {
-			klass[i].innerHTML = "";
-			klass[i].disabled = false;
+				klass[i].innerHTML = "";
+				klass[i].disabled = false;
 			}
-			kliki = 0;
+			xclicks = 0;
 		}
-		
-		var xscore = 0, oscore = 0;
-
-		if (kliki == 9) { 
-			if (klass.innerHTML[0,3,6] == x) {
-				xscore += 1;
-			}
-		}
-		
-		document.getElementById("xscored").innerHTML = xscore;
-		document.getElementById("oscored").innerHTML = oscore;
 	</script>
 	<style>	
 	table{
@@ -69,7 +98,7 @@
 		width: 10vw;
 		height: 10vw;
 	}
-	#resetpoga {
+	#resetbutton {
 		border: 2px solid black;
 		width: 30vw;
 		height: 5vw;
@@ -80,58 +109,57 @@
   		justify-content: center;
 		align-items: center;
 	}
-	#score {
+	#scorecss {
 		text-align: center;
 		font-size: 3vw;
-		margin: -2vw;
+		margin: -2vw 0 2vw 0;
 	}
 	</style>
 </head>
 <body>
-
 	<form>
 		<table>
 			<tr>
 				<td>
-					<button type="button" id="lauk1" class="klase" onclick="xando(this)"></button>
+					<button type="button" id="field1" class="klase" onclick="xando(this)"></button>
 				</td>
 				<td>
-					<button type="button" id="lauk2" class="klase" onclick="xando(this)"></button>
+					<button type="button" id="field2" class="klase" onclick="xando(this)"></button>
 				</td>
 				<td>
-					<button type="button" id="lauk3" class="klase" onclick="xando(this)"></button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<button type="button" id="lauk4" class="klase" onclick="xando(this)"></button>
-				</td>
-				<td>
-					<button type="button" id="lauk5" class="klase" onclick="xando(this)"></button>
-				</td>
-				<td>
-					<button type="button" id="lauk6" class="klase" onclick="xando(this)"></button>
+					<button type="button" id="field3" class="klase" onclick="xando(this)"></button>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<button type="button" id="lauk7" class="klase" onclick="xando(this)"></button>
+					<button type="button" id="field4" class="klase" onclick="xando(this)"></button>
 				</td>
 				<td>
-					<button type="button" id="lauk8" class="klase" onclick="xando(this)"></button>
+					<button type="button" id="field5" class="klase" onclick="xando(this)"></button>
 				</td>
 				<td>
-					<button type="button" id="lauk9" class="klase" onclick="xando(this)"></button>
+					<button type="button" id="field6" class="klase" onclick="xando(this)"></button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" id="field7" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="field8" class="klase" onclick="xando(this)"></button>
+				</td>
+				<td>
+					<button type="button" id="field9" class="klase" onclick="xando(this)"></button>
 				</td>
 			</tr>
 		</table>
 	</form>
-	<div id="score">
+	<div id="scorecss">
 		<p>x : o</p>
-		<span><p id="xscored"></p></span> : <span id="oscored"></span></p>
+		<span id="xwins">0</span> : <span id="owins">0</span>
 	</div>
 	<div id="resetdiv">
-		<button type="reset" id="resetpoga" onclick="notirit()">reset</button>
+		<button type="reset" id="resetbutton" onclick="cleanfields()">reset</button>
 	</div>
-</body>	
-</html>
+</body>
+</html> 
